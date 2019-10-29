@@ -214,5 +214,8 @@
     "type": "opencollective",
     "url": "https://opencollective.com/verdaccio",
     "logo": "https://opencollective.com/verdaccio/logo.txt"
+  },
+  "dependencies": {
+    "emotion-theming": "9.2.9"
   }
 }

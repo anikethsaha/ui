@@ -4,15 +4,15 @@ import mq from '../../utils/styles/media';
 import Icon from '../Icon/Icon';
 import colors from '../../utils/styles/colors';
 
-export const Wrapper = styled('div')({
-  '&&': {
-    background: colors.snow,
-    borderTop: `1px solid ${colors.greyGainsboro}`,
-    color: colors.nobel01,
-    fontSize: '14px',
-    padding: '20px',
-  },
-});
+export const Wrapper = styled('div')`
+  && {
+    background: ${({ theme }) => theme.footer};
+    border-top: 1px solid ${colors.greyGainsboro};
+    color: ${colors.nobel01};
+    font-size: 14px;
+    padding: 20px;
+  }
+`;
 
 export const Inner = styled('div')`
   && {

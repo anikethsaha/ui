@@ -71,7 +71,7 @@ export const SearchWrapper = styled('div')({
 
 export const NavBar = styled(AppBar)`
   && {
-    background-color: ${colors.primary};
+    background-color: ${({ theme }) => theme.backGround};
     min-height: 60px;
     display: flex;
     justify-content: center;

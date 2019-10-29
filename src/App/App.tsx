@@ -1,5 +1,7 @@
 import React, { Component, ReactElement } from 'react';
 import isNil from 'lodash/isNil';
+import { ThemeProvider } from 'emotion-theming';
+
 import 'normalize.css';
 import 'typeface-roboto/index.css';
 
@@ -13,10 +15,15 @@ import API from '../utils/api';
 import '../utils/styles/global';
 import Footer from '../components/Footer';
 
+import { darkTheme, defaultTheme } from './theme';
 import AppRoute from './AppRoute';
 import { AppProps, AppContextProvider } from './AppContext';
 
 export default class App extends Component<{}, AppProps> {
+  constructor(props) {
+    super(props);
+    this.toggleDarkMode = this.toggleDarkMode.bind(this);
+  }
   public state: AppProps = {
     logoUrl: window.VERDACCIO_LOGO,
     user: {},
@@ -25,8 +32,8 @@ export default class App extends Component<{}, AppProps> {
     isUserLoggedIn: false,
     packages: [],
     isLoading: true,
+    isDarkMode: false,
   };
-
   public componentDidMount(): void {
     this.isUserAlreadyLoggedIn();
     this.loadOnHandler();
@@ -41,16 +48,22 @@ export default class App extends Component<{}, AppProps> {
   }
 
   public render(): React.ReactElement<HTMLDivElement> {
-    const { isLoading, isUserLoggedIn, packages, logoUrl, user, scope } = this.state;
-
-    const context = { isUserLoggedIn, packages, logoUrl, user, scope };
-
+    const { isLoading, isUserLoggedIn, packages, logoUrl, user, scope, isDarkMode } = this.state;
+    const context = { isUserLoggedIn, packages, logoUrl, user, scope, isDarkMode, toggleDarkMode: this.toggleDarkMode };
     return (
-      <Container isLoading={isLoading}>
-        {isLoading ? <Loading /> : <AppContextProvider value={context}>{this.renderContent()}</AppContextProvider>}
-        {this.renderLoginModal()}
-      </Container>
+      <ThemeProvider theme={isDarkMode ? darkTheme : defaultTheme}>
+        <Container isLoading={isLoading}>
+          {isLoading ? <Loading /> : <AppContextProvider value={context}>{this.renderContent()}</AppContextProvider>}
+          {this.renderLoginModal()}
+        </Container>
+      </ThemeProvider>
     );
+  }
+
+  public toggleDarkMode(): void {
+    this.setState(state => ({
+      isDarkMode: !state.isDarkMode,
+    }));
   }
 
   public isUserAlreadyLoggedIn = () => {

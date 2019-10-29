@@ -2,15 +2,15 @@ import styled, { css } from 'react-emotion';
 
 import colors from '../../utils/styles/colors';
 
-export const Content = styled('div')({
-  '&&': {
-    backgroundColor: colors.white,
-    flex: 1,
-    display: 'flex',
-    position: 'relative',
-    flexDirection: 'column',
+export const Content = styled('div')`
+  && {
+    background-color: ${({ theme }) => theme.dimBackGround};
+    flex: 1;
+    display: 'flex';
+    position: 'relative';
+    flexDirection: 'column';
   },
-});
+`;
 
 interface ContainerProps {
   isLoading: boolean;
