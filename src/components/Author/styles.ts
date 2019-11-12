@@ -4,6 +4,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { fontWeight } from '../../utils/styles/sizes';
 import ListItem from '../../muiComponents/ListItem';
 import Text from '../../muiComponents/Text';
+import MuiList from '../../muiComponents/List';
 
 export const StyledText = styled(Text)({
   fontWeight: fontWeight.bold,
@@ -25,3 +26,7 @@ export const AuthorListItemText = styled(ListItemText)({
     margin: 0,
   },
 });
+
+export const List = styled(MuiList)`
+  color: ${({ theme }) => theme.textColor};
+`;

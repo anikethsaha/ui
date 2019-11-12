@@ -12,8 +12,9 @@ export interface AppProps {
   showLoginModal: boolean;
   isUserLoggedIn: boolean;
   packages: [];
-  isDarkMode: boolean;
+  theme: string;
   isLoading: boolean;
+  changeTheme: (string) => void;
 }
 
 export const AppContext = createContext<Partial<AppProps>>({});

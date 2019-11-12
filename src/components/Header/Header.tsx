@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 
-import { AppContext } from '../../App/AppContext';
 import Search from '../Search';
 import { getRegistryURL } from '../../utils/url';
 import Button from '../../muiComponents/Button';
@@ -25,7 +24,6 @@ interface Props {
 const Header: React.FC<Props> = ({ logo, withoutSearch, username, onLogout, onToggleLoginModal, scope }) => {
   const [isInfoDialogOpen, setOpenInfoDialog] = useState();
   const [showMobileNavBar, setShowMobileNavBar] = useState();
-  const { toggleDarkMode } = useContext(AppContext);
   return (
     <>
       <NavBar position="static">

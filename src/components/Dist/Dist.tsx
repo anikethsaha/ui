@@ -3,9 +3,8 @@ import React, { FC, useContext } from 'react';
 import { DetailContext } from '../../pages/Version';
 import fileSizeSI from '../../utils/file-size';
 import { formatLicense } from '../../utils/package';
-import List from '../../muiComponents/List';
 
-import { StyledText, DistListItem, DistChips } from './styles';
+import { StyledText, DistListItem, DistChips, List } from './styles';
 
 const DistChip: FC<{ name: string }> = ({ name, children }) =>
   children ? (

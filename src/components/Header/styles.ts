@@ -104,6 +104,25 @@ export const NavBar = styled(AppBar)`
   }
 `;
 
+export const themeButton = css`
+  color: white !important;
+  margin: auto 5px;
+  text-decoration: none;
+  background-color: transparent;
+  border: none !important;
+  padding: 0 5px;
+  letter-spacing: 1px;
+  font-size: 12px;
+  border-radius: 4px;
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none !important;
+  }
+  &:before {
+    border: none !important;
+  }
+`;
 export const StyledExternalLink = styled(ExternalLink)({
   '&&': {
     color: 'white',

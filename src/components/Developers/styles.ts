@@ -20,11 +20,12 @@ export const Content = styled('div')({
   },
 });
 
-export const StyledText = styled(Text)({
-  fontWeight: fontWeight.bold,
-  marginBottom: '10px',
-  textTransform: 'capitalize',
-});
+export const StyledText = styled(Text)`
+  font-weight: ${fontWeight.bold};
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.textColor};
+  text-transform: capitalize;
+`;
 
 export const Fab = styled(MuiFab)({
   '&&': {

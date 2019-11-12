@@ -10,9 +10,8 @@ import Install from '../Install';
 import Repository from '../Repository/Repository';
 import { DetailContext } from '../../pages/Version';
 import List from '../../muiComponents/List';
-import Card from '../../muiComponents/Card';
 
-import { TitleListItem, TitleListItemText, PackageDescription, PackageVersion } from './styles';
+import { TitleListItem, TitleListItemText, PackageDescription, PackageVersion, Card } from './styles';
 
 const renderLatestDescription = (description, version, isLatest = true): JSX.Element => {
   return (
@@ -41,7 +40,7 @@ const renderTitle = (packageName, packageVersion, packageMeta): JSX.Element => {
 
   return (
     <List className="detail-info">
-      <TitleListItem alignItems="flex-start" button={true}>
+      <TitleListItem alignItems="flex-start">
         <TitleListItemText
           primary={<b>{packageName}</b>}
           secondary={renderLatestDescription(packageMeta.latest.description, version, isLatest)}

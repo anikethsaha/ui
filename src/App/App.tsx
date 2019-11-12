@@ -15,14 +15,14 @@ import API from '../utils/api';
 import '../utils/styles/global';
 import Footer from '../components/Footer';
 
-import { darkTheme, defaultTheme } from './theme';
+import themeStyling from './theme';
 import AppRoute from './AppRoute';
 import { AppProps, AppContextProvider } from './AppContext';
 
 export default class App extends Component<{}, AppProps> {
   constructor(props) {
     super(props);
-    this.toggleDarkMode = this.toggleDarkMode.bind(this);
+    this.changeTheme = this.changeTheme.bind(this);
   }
   public state: AppProps = {
     logoUrl: window.VERDACCIO_LOGO,
@@ -32,7 +32,8 @@ export default class App extends Component<{}, AppProps> {
     isUserLoggedIn: false,
     packages: [],
     isLoading: true,
-    isDarkMode: false,
+    theme: 'defaultTheme',
+    changeTheme: this.changeTheme,
   };
   public componentDidMount(): void {
     this.isUserAlreadyLoggedIn();
@@ -48,10 +49,10 @@ export default class App extends Component<{}, AppProps> {
   }
 
   public render(): React.ReactElement<HTMLDivElement> {
-    const { isLoading, isUserLoggedIn, packages, logoUrl, user, scope, isDarkMode } = this.state;
-    const context = { isUserLoggedIn, packages, logoUrl, user, scope, isDarkMode, toggleDarkMode: this.toggleDarkMode };
+    const { isLoading, isUserLoggedIn, packages, logoUrl, user, scope, theme } = this.state;
+    const context = { isUserLoggedIn, packages, logoUrl, user, scope, theme, changeTheme: this.changeTheme };
     return (
-      <ThemeProvider theme={isDarkMode ? darkTheme : defaultTheme}>
+      <ThemeProvider theme={themeStyling[theme]}>
         <Container isLoading={isLoading}>
           {isLoading ? <Loading /> : <AppContextProvider value={context}>{this.renderContent()}</AppContextProvider>}
           {this.renderLoginModal()}
@@ -60,10 +61,10 @@ export default class App extends Component<{}, AppProps> {
     );
   }
 
-  public toggleDarkMode(): void {
-    this.setState(state => ({
-      isDarkMode: !state.isDarkMode,
-    }));
+  public changeTheme(theme): void {
+    this.setState({
+      theme,
+    });
   }
 
   public isUserAlreadyLoggedIn = () => {

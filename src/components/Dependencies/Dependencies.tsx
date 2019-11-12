@@ -1,12 +1,22 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import CardContent from '@material-ui/core/CardContent';
+import MuiCardContent from '@material-ui/core/CardContent';
+import styled from 'react-emotion';
 
 import { PackageDependencies } from '../../../types/packageMeta';
 import { DetailContext } from '../../pages/Version';
 import NoItems from '../NoItems';
 
 import { CardWrap, StyledText, Tags, Tag } from './styles';
+
+const CardContent = styled(MuiCardContent)`
+  background-color: ${({ theme }) => theme.secondaryBgColor};
+  && {
+    h6 {
+      color: ${({ theme }) => theme.textColor};
+    }
+  }
+`;
 
 interface DependencyBlockProps {
   title: string;

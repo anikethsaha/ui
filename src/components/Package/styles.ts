@@ -90,7 +90,7 @@ export const PackageTitle = styled('span')`
     font-size: 20px;
     display: block;
     margin-bottom: 12px;
-    color: ${colors.eclipse};
+    color: ${({ theme }) => theme.textColor};
     cursor: pointer;
 
     &:hover {
@@ -110,29 +110,30 @@ export const GridRightAligned = styled(Grid)({
   },
 });
 
-export const PackageList = styled(List)({
-  '&&': {
-    padding: '12px 0 12px 0',
-
-    '&:hover': {
-      backgroundColor: colors.greyLight3,
+export const PackageList = styled(List)`
+  && {
+    padding: 12px 0 12px 0;
+    color: ${({ theme }) => theme.textColor};
+  
+    &:hover{
+      background-color: ${colors.greyLight3};
     },
 
-    '> :last-child': {
-      paddingTop: 0,
-    },
-  },
-});
-
-export const IconButton = styled(MuiIconButton)({
-  '&&': {
-    padding: '6px',
-
-    svg: {
-      fontSize: '16px',
+    > :last-child {
+      padding-top: 0;
     },
   },
-});
+`;
+
+export const IconButton = styled(MuiIconButton)`
+  && {
+    padding: 6px;
+    color: ${({ theme }) => theme.textColor};
+    svg {
+      font-size: 16px;
+    },
+  },
+`;
 
 export const TagContainer = styled('span')`
   && {
@@ -151,8 +152,8 @@ export const PackageListItemText = styled(ListItemText)({
   },
 });
 
-export const Description = styled(Typography)({
-  color: colors.greyDark2,
-  fontSize: '14px',
-  paddingRight: 0,
-});
+export const Description = styled(Typography)`
+  color: ${({ theme }) => theme.testColorSecondary};
+  font-size: 14px;
+  padding-right: 0;
+`;

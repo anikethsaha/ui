@@ -18,10 +18,11 @@ const InstallItem = styled(ListItem)({
   },
 });
 
-const InstallListItemText = styled(ListItemText)({
-  padding: '0 10px',
-  margin: 0,
-});
+const InstallListItemText = styled(ListItemText)`
+  padding: 0 10px;
+  margin: 0;
+  color: ${({ theme }) => theme.textColor};
+`;
 
 const PackageMangerAvatar = styled(Avatar)({
   borderRadius: '0px',

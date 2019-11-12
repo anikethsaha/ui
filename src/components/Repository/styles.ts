@@ -2,6 +2,7 @@ import styled from 'react-emotion';
 import Grid from '@material-ui/core/Grid';
 import ListItemText from '@material-ui/core/ListItemText';
 
+import MuiList from '../../muiComponents/List';
 import Github from '../../icons/GitHub';
 import colors from '../../utils/styles/colors';
 import { fontWeight } from '../../utils/styles/sizes';
@@ -19,11 +20,11 @@ export const GridRepo = styled(Grid)({
   },
 });
 
-export const GithubLink = styled('a')({
-  '&&': {
-    color: colors.primary,
-  },
-});
+export const GithubLink = styled('a')`
+  && {
+    color: ${({ theme }) => theme.textColor};
+  }
+`;
 
 export const GithubLogo = styled(Github)({
   '&&': {
@@ -48,3 +49,7 @@ export const RepositoryListItemText = styled(ListItemText)({
     margin: 0,
   },
 });
+
+export const List = styled(MuiList)`
+  color: ${({ theme }) => theme.textColor};
+`;

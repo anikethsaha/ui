@@ -1,17 +1,9 @@
 import React, { useContext } from 'react';
-import styled from 'react-emotion';
 
 import { DetailContext } from '../../pages/Version';
-import { fontWeight } from '../../utils/styles/sizes';
-import Text from '../../muiComponents/Text';
-import List from '../../muiComponents/List';
 
+import { List, StyledText } from './style';
 import InstallListItem, { DependencyManager } from './InstallListItem';
-
-const StyledText = styled(Text)({
-  fontWeight: fontWeight.bold,
-  textTransform: 'capitalize',
-});
 
 const Install: React.FC = () => {
   const detailContext = useContext(DetailContext);

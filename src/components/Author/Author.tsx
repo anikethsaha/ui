@@ -3,9 +3,8 @@ import React, { FC, useContext } from 'react';
 import { DetailContext } from '../../pages/Version';
 import { isEmail } from '../../utils/url';
 import Avatar from '../../muiComponents/Avatar';
-import List from '../../muiComponents/List';
 
-import { StyledText, AuthorListItem, AuthorListItemText } from './styles';
+import { StyledText, AuthorListItem, AuthorListItemText, List } from './styles';
 
 const Author: FC = () => {
   const { packageMeta } = useContext(DetailContext);

@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState, useEffect } from 'react';
 import { default as MuiTabs } from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import MuiTab from '@material-ui/core/Tab';
 import styled from 'react-emotion';
 
 import { TabPosition } from './tabs';
@@ -13,6 +13,10 @@ interface Props {
 const Tabs = styled(MuiTabs)({
   marginBottom: 16,
 });
+
+const Tab = styled(MuiTab)`
+  color: ${({ theme }) => theme.textColor};
+`;
 
 const getTabIndex = (tabPosition: TabPosition): number =>
   Object.keys(TabPosition).findIndex(position => position === String(tabPosition).toUpperCase());

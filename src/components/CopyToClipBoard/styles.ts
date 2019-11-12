@@ -21,4 +21,6 @@ export const ClipBoardCopyText = styled('span')({
   },
 });
 
-export const CopyIcon = styled(IconButton)({});
+export const CopyIcon = styled(IconButton)`
+  color: ${({ theme }) => theme.textColor};
+`;
